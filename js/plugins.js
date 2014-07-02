@@ -94,7 +94,7 @@ $(function() {
             }
           },
          }).done(function(response) {
-	       console.log("Response: "+response);
+	       console.log("Response: "+JSON.stringify(response));
            $('#status').text('Ihre Email wurde erfolgreich gesendet');
            $(".contactform name,.contactform message,.contactform email").prop('disabled', true);
            $('.contactform #submit').hide();
