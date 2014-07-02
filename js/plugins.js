@@ -83,7 +83,7 @@ $(function() {
               "from_name": decodeURIComponent($form_data.name),
               'to': [
                   {
-                    'email':'lukas@laborwelte.de',
+                    'email':'info@laborwelte.de',
                     'name': 'Dentallabor Welte',
                     'type': 'to'
                   },
