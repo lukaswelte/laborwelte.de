@@ -68,9 +68,12 @@ $(function() {
 $(function() {
 	$('.contactform').on('submit',function(e){
       e.preventDefault();
-      var $form_data = JSON.parse('{"' + decodeURI($(this).serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
 
-      if($form_data.email!=""){
+      var email = $("#email").val(); // get email field value
+      var name = $("#name").val(); // get name field value
+      var msg = $("#message").val(); //
+
+      if($email!=""){
         $('#status').text('Sende Email...');
         //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
         $.ajax({
@@ -79,8 +82,8 @@ $(function() {
           data: {
             'key': 'gNZKgHqgpNxLvGQwN1R7eQ',
             'message': {
-              'from_email': decodeURIComponent($form_data.email),
-              "from_name": decodeURIComponent($form_data.name),
+              'from_email': email,
+              "from_name": name,
               'to': [
                   {
                     'email':'info@laborwelte.de',
@@ -90,7 +93,7 @@ $(function() {
                 ],
               'autotext': 'true',
                 'subject': 'Website - Frage',
-              'html': $form_data.message
+              'html': msg
             }
           },
          }).done(function(response) {
@@ -98,7 +101,7 @@ $(function() {
            $(".contactform name,.contactform message,.contactform email").prop('disabled', true);
            $('.contactform #submit').hide();
          }).fail(function(e) {
-         	$('#status').text('Whoopsie! Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
+         	$('#status').text('Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
          });
       }
     });
