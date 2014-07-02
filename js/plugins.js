@@ -67,11 +67,12 @@ $(function() {
 
 $(function() {
 	$('.contactform').on('submit',function(e){
+	console.log("Start sending");
       e.preventDefault();
       var $this = $(this);
       var $form_data = JSON.parse('{"' + decodeURI($this.serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       if($form_data.honey==""){
-        $('#status').text('Sending Email...');
+        $('#status').text('Sende Email...');
         //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
         $.ajax({
           type: 'POST',
@@ -94,11 +95,13 @@ $(function() {
             }
           },
          }).done(function(response) {
-           $('.contactform').append('Ihre Email wurde erfolgreich gesendet');
+         	console.log("Done");
+           $('#status').text('Ihre Email wurde erfolgreich gesendet');
            $(".contactform name,.contactform message,.contactform email").prop('disabled', true);
            $('.contactform #submit').hide();
          }).fail(function(e) {
-         	$('.contactform').append('Whoopsie! Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
+         	console.log("Failed "+e.status+" "+e.statusText);
+         	$('#status').text('Whoopsie! Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
          });
       }
     });
