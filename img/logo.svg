@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="67px" height="44px" viewBox="0 0 67 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 2 + Fill 11 + Stroke 15</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Fill-2-+-Fill-11-+-Stroke-15" sketch:type="MSLayerGroup">
+            <path d="M33.33,0 L33.322,39.942 C29.945,42.203 25.765,43.518 21.418,43.518 C9.589,43.518 0,33.776 0,21.759 L0,0.001 L20.399,0.001 L20.399,23.119 L23.118,23.119 L23.118,0.001 L33.33,0" id="Fill-2" fill="#000000" sketch:type="MSShapeGroup"></path>
+            <path d="M33,0 L33.008,39.942 C36.385,42.203 40.565,43.518 44.912,43.518 C56.741,43.518 66.33,33.776 66.33,21.759 L66.33,0.001 L45.932,0.001 L45.932,23.119 L43.212,23.119 L43.212,0.001 L33,0" id="Fill-11" fill="#0072BA" sketch:type="MSShapeGroup"></path>
+            <path d="M55.995,9 L55.995,22.15 C55.995,28.91 50.849,34.389 44.502,34.389 C38.154,34.389 33.008,28.91 33.008,22.15 L32.988,9 L32.988,22.15 C32.988,28.91 27.842,34.389 21.494,34.389 C15.146,34.389 10,28.91 10,22.15 L10,9" id="Stroke-15" stroke="#FEFEFE" stroke-width="2.72" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

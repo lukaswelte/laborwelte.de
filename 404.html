@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Milano | Interactive Responsive HTML5 Template</title>
+
+	<!-- Add your CSS files here -->
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/themes/blue.css">
+
+	<!-- Add your Fonts here -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="container">
+
+	<div class="logo"><img src="img/logo.svg" alt="Dentallabor Welte Logo"></div>
+
+	<header>
+		<nav id="nav">
+			<ul class="nav">
+				<li></li>
+				<li><a href="index.html" class="icon-user"><span>Über Uns</span></a></li>
+				<li class="active"><a href="kontakt.html" class="icon-mail"><span>Kontakt</span></a></li>
+				<li><a href="impressum.html" class="icon-text"><span>Impressum</span></a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- Header End -->
+
+	<section class="content">
+		<div class="error">
+			<span>error</span>
+			<span>404</span>
+			<span>nothing found here.</span>
+		</div>
+	</section>
+	<!-- Content End -->
+
+</div>
+<!-- Container End -->
+
+<!-- Scripts -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/plugins.js"></script>
+
+<script>
+      var navigation = responsiveNav("#nav", {
+        animate: true,        // Boolean: Use CSS3 transitions, true or false
+        transition: 400,      // Integer: Speed of the transition, in milliseconds
+        label: "",            // String: Label for the navigation toggle
+        insert: "before",     // String: Insert the toggle before or after the navigation
+        customToggle: "",     // Selector: Specify the ID of a custom toggle
+        openPos: "relative",  // String: Position of the opened nav, relative or static
+        jsClass: "js",        // String: 'JS enabled' class which is added to <html> el
+        init: function(){},   // Function: Init callback
+        open: function(){},   // Function: Open callback
+        close: function(){}   // Function: Close callback
+      });
+</script>
+
+</body>
+</html>
