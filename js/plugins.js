@@ -89,12 +89,11 @@ $(function() {
                   },
                 ],
               'autotext': 'true',
-                'subject': 'Kontaktformular: '+window.location,
+                'subject': 'Website - Frage',
               'html': $form_data.message
             }
           },
          }).done(function(response) {
-	       console.log("Response: "+JSON.stringify(response));
            $('#status').text('Ihre Email wurde erfolgreich gesendet');
            $(".contactform name,.contactform message,.contactform email").prop('disabled', true);
            $('.contactform #submit').hide();
