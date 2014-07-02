@@ -69,8 +69,7 @@ $(function() {
 	$('.contactform').on('submit',function(e){
 	  console.log("Start sending");
       e.preventDefault();
-      var $this = $(this);
-      var $form_data = JSON.parse('{"' + decodeURI($this.serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      var $form_data = JSON.parse('{"' + decodeURI($(this).serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       console.log("1");
 
       if($form_data.honey==""){
