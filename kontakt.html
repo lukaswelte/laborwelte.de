@@ -116,43 +116,6 @@
         open: function(){},   // Function: Open callback
         close: function(){}   // Function: Close callback
       });
-      
-      $(document).on('submit','form#contactform',function(e){
-      e.preventDefault();
-      var $this = $(this);
-      var $form_data = JSON.parse('{"' + decodeURI($this.serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
-      if($form_data.honey==""){
-        $('#status').text('Sending Email...');
-        //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
-        $.ajax({
-          type: 'POST',
-          url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-          data: {
-            'key': 'gNZKgHqgpNxLvGQwN1R7eQ',
-            'message': {
-              'from_email': decodeURIComponent($form_data.email),
-              "from_name": decodeURIComponent($form_data.name),
-              'to': [
-                  {
-                    'email':'lukas@laborwelte.de',
-                    'name': 'Dentallabor Welte',
-                    'type': 'to'
-                  },
-                ],
-              'autotext': 'true',
-                'subject': 'Kontaktformular: '+window.location,
-              'html': $form_data.message
-            }
-          },
-         }).done(function(response) {
-           $('#status').text('Email Sent Successfully!');
-           $("form#contact input,form#contact textarea").prop('disabled', true);
-           $('form#contact #submit').hide();
-         }).fail(function(e) {
-           $('#status').text('Whoopsie! Your email failed to send due to: '+e.status+' '+e.statusText+'.');
-         });
-      }
-    });
 </script>
 
 </body>

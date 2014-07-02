@@ -66,13 +66,41 @@ $(function() {
 /* ---------------------------------------- */
 
 $(function() {
-    $('.contactform').on('submit', function(e) {
-        $.post('send.php', $(this).serialize(), function (data) {
-            $('.contactform').append(data);
-        }).error(function() {
-            alert('Error.');
-        });
-        e.preventDefault();
+	$('.contactform').on('submit',function(e){
+      e.preventDefault();
+      var $this = $(this);
+      var $form_data = JSON.parse('{"' + decodeURI($this.serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      if($form_data.honey==""){
+        $('#status').text('Sending Email...');
+        //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
+        $.ajax({
+          type: 'POST',
+          url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+          data: {
+            'key': 'gNZKgHqgpNxLvGQwN1R7eQ',
+            'message': {
+              'from_email': decodeURIComponent($form_data.email),
+              "from_name": decodeURIComponent($form_data.name),
+              'to': [
+                  {
+                    'email':'lukas@laborwelte.de',
+                    'name': 'Dentallabor Welte',
+                    'type': 'to'
+                  },
+                ],
+              'autotext': 'true',
+                'subject': 'Kontaktformular: '+window.location,
+              'html': $form_data.message
+            }
+          },
+         }).done(function(response) {
+           $('.contactform').append('Ihre Email wurde erfolgreich gesendet');
+           $(".contactform name,.contactform message,.contactform email").prop('disabled', true);
+           $('.contactform #submit').hide();
+         }).fail(function(e) {
+         	$('.contactform').append('Whoopsie! Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
+         });
+      }
     });
 });
 
