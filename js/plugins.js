@@ -67,11 +67,14 @@ $(function() {
 
 $(function() {
 	$('.contactform').on('submit',function(e){
-	console.log("Start sending");
+	  console.log("Start sending");
       e.preventDefault();
       var $this = $(this);
       var $form_data = JSON.parse('{"' + decodeURI($this.serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      console.log("1");
+
       if($form_data.honey==""){
+      console.log("2");
         $('#status').text('Sende Email...');
         //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
         $.ajax({
@@ -103,6 +106,7 @@ $(function() {
          	console.log("Failed "+e.status+" "+e.statusText);
          	$('#status').text('Whoopsie! Ihre Email konnte nicht gesendet werden wegen: '+e.status+' '+e.statusText+'.');
          });
+         console.log("end");
       }
     });
 });
