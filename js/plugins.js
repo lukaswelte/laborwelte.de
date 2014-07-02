@@ -70,7 +70,7 @@ $(function() {
 	  console.log("Start sending");
       e.preventDefault();
       var $form_data = JSON.parse('{"' + decodeURI($(this).serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
-      console.log("1");
+      console.log("form data: "+form_data);
 
       if($form_data.honey==""){
       console.log("2");
