@@ -71,9 +71,9 @@ $(function() {
 
       var email = $("#email").val(); // get email field value
       var name = $("#name").val(); // get name field value
-      var msg = $("#message").val(); //
+      var msg = $("#message").val(); //the message
 
-      if($email!=""){
+      if(email!=""){
         $('#status').text('Sende Email...');
         //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
         $.ajax({
