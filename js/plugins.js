@@ -74,8 +74,8 @@ $(function() {
       var $form_data = JSON.parse('{"' + decodeURI($(this).serialize()).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       console.log("form data: "+$form_data);
 
-      if($form_data.honey==""){
-      console.log("2");
+      if($form_data.email!=""){
+      	console.log("2");
         $('#status').text('Sende Email...');
         //Messages Calls => https://mandrillapp.com/api/docs/messages.html        
         $.ajax({
